@@ -14,7 +14,7 @@
       /  -\      |      /-  \               Fabian Knebl
       | (`-'\    |    /'-`) |               Christoph Roth
       \\_`\  '.__|__.'  /`_//               Lukas Kessler
-        /     /     \     \
+        /     /     \     \                 David Schmutz
        /    /`       `\    \
       /_,="(           )"=,_\
       )-_,="\         /"=,_-(
