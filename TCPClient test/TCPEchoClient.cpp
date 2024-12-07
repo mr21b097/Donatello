@@ -4,7 +4,7 @@
 #include <ws2tcpip.h>   // für inet_addr() und sockaddr_in
 #include <cstdlib>      // für exit()
 
-#define RCVBUFSIZE 1024   // Größe des Empfangspuffers
+#define RCVBUFSIZE 20000   // Größe des Empfangspuffers
 
 // Fehlerbehandlungsfunktion
 void DieWithError(const std::string& errorMessage) {
@@ -76,7 +76,7 @@ int main(int argc, char* argv[]) {
         std::cout << echoBuffer;       // Gib den empfangenen Echo-Puffer aus
     }
 
-    std::cout << std::endl;  // Ausgabe eines abschließenden Zeilenumbruchs
+    std::cout << std::endl;  // Ausgabe einesA abschließenden Zeilenumbruchs
 
     // Schließe den Socket
     closesocket(sock);
