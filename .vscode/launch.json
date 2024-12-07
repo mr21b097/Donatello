@@ -8,8 +8,8 @@
             "args": [],
             "stopAtEntry": false,
             "externalConsole": true,
-            "cwd": "c:/Users/Chris/OneDrive/Desktop/FH/Master/APR/Donatello",
-            "program": "c:/Users/Chris/OneDrive/Desktop/FH/Master/APR/Donatello/build/Debug/outDebug",
+            "cwd": "C:/Users/Christoph Roth/Desktop/APR/Donatello",
+            "program": "C:/Users/Christoph Roth/Desktop/APR/Donatello/build/Debug/outDebug",
             "MIMode": "gdb",
             "miDebuggerPath": "gdb",
             "setupCommands": [
