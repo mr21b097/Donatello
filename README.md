@@ -5,7 +5,7 @@
           .'_.-'-._`"""`_.-'-._'.
           /` |    __`"`__    | `\
          |   | .'`  ^:^  `'. |   |              Branch: Christoph
-         )'-.//      |      \\.-'(
+         )'-.//      |      \\.-'( 
         /   //       |       \\   \             Turtlebot 4:
         \   |=======.=.=======|   /             Donatello
          )`-|      ( D )      |-'(              IP: 192.168.100.54
@@ -24,6 +24,10 @@
          _.-'   '/       \'   '-._
         (__,'  .'         '.  ',__)
            '--`             `--'
+Aufteilung:
+Christoph -> TCP/IP, Threading, merging, Shared Memory
+Fabian -> Datenverarbeitung, Shared memory
+Lukas -> Mapping, Shared Memory
 
 Port 9998:
 
