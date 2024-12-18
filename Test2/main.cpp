@@ -1,3 +1,8 @@
+//////////////////
+// von Christoph//
+//////////////////
+
+
 #include <iostream>
 #include <thread>
 #include <string>
@@ -54,9 +59,9 @@ void runGeometryClient(const std::string& serverIP, unsigned short Port)
     return;
 }
 
-///////////////////////////
-// HIER BEGINNT DIE MAIN //
-///////////////////////////
+/////////////////////////////////////////
+// HIER BEGINNT DIE MAIN  von Christoph//
+/////////////////////////////////////////
 
 int main() {
     std::string serverIP = "192.168.100.54";  // Server-IP
