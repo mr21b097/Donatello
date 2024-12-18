@@ -109,6 +109,13 @@
     "streambuf": "cpp",
     "text_encoding": "cpp",
     "typeinfo": "cpp",
-    "variant": "cpp"
-  }
+    "variant": "cpp",
+    "fstream": "cpp",
+    "sstream": "cpp",
+    "ratio": "cpp",
+    "semaphore": "cpp",
+    "stop_token": "cpp",
+    "thread": "cpp"
+  },
+  "C_Cpp.errorSquiggles": "disabled"
 }
