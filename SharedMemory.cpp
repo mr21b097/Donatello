@@ -66,6 +66,8 @@ void cleanupSharedMemory() {
 int main() {
     try {
         initSharedMemory();
+        ReleaseSemaphore(sem_read, 1, NULL);
+        ReleaseSemaphore(sem_write, 1, NULL);
 
         while (true) {
             // Warte darauf, dass der Schreibprozess schreiben kann
@@ -82,6 +84,7 @@ int main() {
                       << sharedMemory->laserData << ", " << sharedMemory->odomData << std::endl;
 
             Sleep(1000); // 1 Sekunde warten
+            //ReleaseSemaphore(sem_write, 1, NULL); für Endlosschleife
         }
 
         cleanupSharedMemory();

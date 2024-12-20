@@ -64,6 +64,8 @@ void detachSharedMemory() {
 int main() {
     try {
         attachSharedMemory();
+        ReleaseSemaphore(sem_read, 1, NULL);
+        ReleaseSemaphore(sem_write, 1, NULL);
 
         while (true) {
             // Warten, bis Daten geschrieben wurden
