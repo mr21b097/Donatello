@@ -25,7 +25,7 @@
         (__,'  .'         '.  ',__)
            '--`             `--'
 Aufteilung:
-Christoph -> TCP/IP, Threading, merging, Shared Memory
+Christoph -> TCP/IP, Threading, merging
 Fabian -> Datenverarbeitung, Shared memory
 Lukas -> Mapping, Shared Memory
 
