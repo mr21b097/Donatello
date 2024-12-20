@@ -1,19 +1,17 @@
 #ifndef SHAREDMEMORY_H
 #define SHAREDMEMORY_H
 
-#include <semaphore.h>
-#include <sys/mman.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <cstring>
+#include <windows.h>
+#include <string>
 
 struct SharedData {
     char laserData[1024];
     char odomData[256];
 };
 
-extern sem_t* sem_read;
-extern sem_t* sem_write;
+extern HANDLE sem_read;
+extern HANDLE sem_write;
+extern HANDLE sharedMemoryHandle;
 extern SharedData* sharedMemory;
 
 void initSharedMemory();
