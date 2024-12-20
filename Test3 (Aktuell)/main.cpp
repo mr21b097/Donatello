@@ -99,8 +99,8 @@ std::string runExecutableWithOutput(const std::string& exePath, const std::strin
 
 int main() {
     // Exe-Pfade anpassen
-    std::string serverExePath = "C:\\Users\\Christoph Roth\\Desktop\\APR\\Donatello\\Test3\\server.exe";
-    std::string clientExePath = "C:\\Users\\Christoph Roth\\Desktop\\APR\\Donatello\\Test3\\client.exe";
+    std::string serverExePath = "C:\\Users\\Christoph Roth\\Desktop\\APR\\Donatello\\Test3 (Aktuell)\\server.exe";
+    std::string clientExePath = "C:\\Users\\Christoph Roth\\Desktop\\APR\\Donatello\\Test3 (Aktuell)\\client.exe";
 
     // Argumente für die Programme
     std::string serverArgs1 = "9997";
