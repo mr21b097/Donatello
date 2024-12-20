@@ -106,21 +106,26 @@ int main() {
         // Initialisiert Shared Memory und Semaphoren
         initSharedMemory();
 
-        // Schreibzugriff auf Shared Memory sichern
-        WaitForSingleObject(sem_write, INFINITE); // Warten, bis Schreibzugriff erlaubt ist
+        while (true) {  // Endlosschleife zum kontinuierlichen Schreiben
+            // Schreibzugriff auf Shared Memory sichern
+            WaitForSingleObject(sem_write, INFINITE); // Warten, bis Schreibzugriff erlaubt ist
 
-        // Beispiel-Daten in den Shared Memory schreiben
-        std::strcpy(sharedMemory->laserData, "Example laser data"); // Daten kopieren
-        std::strcpy(sharedMemory->odomData, "Example odom data");   // Daten kopieren
+            // Beispiel-Daten in den Shared Memory schreiben
+            std::strcpy(sharedMemory->laserData, "Example laser data"); // Daten kopieren
+            std::strcpy(sharedMemory->odomData, "Example odom data");   // Daten kopieren
 
-        // Signalisieren, dass Lesen möglich ist
-        ReleaseSemaphore(sem_read, 1, NULL);
+            // Signalisieren, dass Lesen möglich ist
+            ReleaseSemaphore(sem_read, 1, NULL);
 
-        // Zeigt die geschriebenen Daten an
-        std::cout << "Data written to shared memory: "
-                  << sharedMemory->laserData << ", " << sharedMemory->odomData << std::endl;
+            // Zeigt die geschriebenen Daten an
+            std::cout << "Data written to shared memory: "
+                      << sharedMemory->laserData << ", " << sharedMemory->odomData << std::endl;
 
-        // Ressourcen aufräumen
+            // Eine kurze Pause (optional), um den Prozess nicht zu überlasten
+            Sleep(1000); // 1 Sekunde warten
+        }
+
+        // Ressourcen aufräumen (dieser Code wird in einer Endlosschleife nicht erreicht)
         cleanupSharedMemory();
     } catch (const std::exception& e) {
         // Fehlerbehandlung: Fehler ausgeben und Ressourcen freigeben
