@@ -70,6 +70,7 @@ std::string OdometryClient::readOdometryData() {
         }
     }
     return data;
+    
 }
 
 // Ressourcen freigeben

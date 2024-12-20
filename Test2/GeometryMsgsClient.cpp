@@ -65,6 +65,7 @@ bool GeometryMsgsClient::sendGeometryMsg(double linear, double angular) {
     }
 
     std::cout << "Sent message: " << command << std::endl;
+    
     return true;
 }
 

@@ -1,37 +1,34 @@
 #ifndef LASER_SCAN_CLIENT_H
 #define LASER_SCAN_CLIENT_H
 
-#include <vector>
 #include <string>
 #include <winsock2.h>
 #include <ws2tcpip.h>
+#include <iostream>
+#include <stdexcept>
+#include <chrono>
+#include <thread>
 
-
-
-//#pragma comment(lib, "ws2_32.lib")
+//#pragma comment(lib, "Ws2_32.lib")
 
 class LaserScanClient {
 public:
-    // Konstruktor und Destruktor
-    LaserScanClient(const std::string& ip, int port);
-    ~LaserScanClient();
+    LaserScanClient(const std::string& ip, int port); // Konstruktor
+    ~LaserScanClient(); // Destruktor
 
-    // Methoden
-    bool connectToServer();
-    std::string readLaserData();
+    bool connectToServer(); // Verbindung zum Server aufbauen
+    std::string readLaserData(); // Laserdaten lesen
 
 private:
-    // Private Methoden
-    void initializeWinsock();
-    void createSocket();
-    void setupServerAddress();
-    void cleanup();
+    void initializeWinsock(); // Winsock initialisieren
+    void createSocket(); // Socket erstellen
+    void setupServerAddress(); // Server-Adresse einrichten
+    void cleanup(); // Ressourcen aufräumen
 
-    // Member-Variablen
-    std::string ip_address;
-    int port;
-    SOCKET sock;
-    struct sockaddr_in server_addr;
+    std::string ip_address; // Server-IP
+    int port; // Portnummer
+    SOCKET sock; // Socket
+    sockaddr_in server_addr; // Server-Adresse
 };
 
 #endif // LASER_SCAN_CLIENT_H
