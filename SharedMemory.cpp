@@ -83,7 +83,7 @@ int main() {
             std::cout << "Writer releasing semaphore..." << std::endl;
             ReleaseSemaphore(sem_read, 1, NULL);
             
-            ReleaseSemaphore(sem_write, 1, NULL); //Für Endlosschleife jedoch ohne Synchronisation dann
+           // ReleaseSemaphore(sem_write, 1, NULL); //Für Endlosschleife jedoch ohne Synchronisation 
 
             std::cout << "Data written to shared memory: "
                       << sharedMemory->laserData << ", " << sharedMemory->odomData << std::endl;
