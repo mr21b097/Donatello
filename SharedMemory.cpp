@@ -3,7 +3,7 @@
 sem_t* sem_read = nullptr;
 sem_t* sem_write = nullptr;
 SharedData* sharedMemory = nullptr;
-
+//Test
 void initSharedMemory() {
     int fd = shm_open("/shared_mem", O_CREAT | O_RDWR, 0666);
     ftruncate(fd, sizeof(SharedData));
