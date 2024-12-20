@@ -64,11 +64,13 @@ void detachSharedMemory() {
 int main() {
     try {
         attachSharedMemory();
-        ReleaseSemaphore(sem_read, 1, NULL);
+
         ReleaseSemaphore(sem_write, 1, NULL);
+        ReleaseSemaphore(sem_read, 1, NULL);
 
         while (true) {
-            // Warten, bis Daten geschrieben wurden
+            std::cout << "Reader waiting for semaphore..." << std::endl;
+            // Warten, bis Daten im Shared Memory zum Lesen bereit sind
             WaitForSingleObject(sem_read, INFINITE);
 
             // Daten aus dem Shared Memory lesen
@@ -76,11 +78,11 @@ int main() {
                       << sharedMemory->laserData << ", "
                       << sharedMemory->odomData << std::endl;
 
-            // Gebe das Schreib-Semaphor frei
-            ReleaseSemaphore(sem_write, 1, NULL);
+            // Gebe das Schreib-Semaphor frei, damit der Schreibprozess fortfahren kann
+            std::cout << "Reader releasing semaphore..." << std::endl;
+            ReleaseSemaphore(sem_write, 1, NULL); 
 
-            // Hier kannst du eine Pause einfügen, wenn du möchtest
-            Sleep(1000); // 1 Sekunde warten
+            Sleep(1000);  // 1 Sekunde warten
         }
 
         detachSharedMemory();

@@ -1,7 +1,7 @@
-#include <windows.h>     
-#include <iostream>      
-#include <stdexcept>     
-#include <cstring>       
+#include <windows.h>
+#include <iostream>
+#include <stdexcept>
+#include <cstring>
 
 struct SharedData {
     char laserData[1024];
@@ -14,12 +14,12 @@ HANDLE sharedMemoryHandle = NULL;
 SharedData* sharedMemory = NULL;
 
 void initSharedMemory() {
-    sem_read = CreateSemaphoreA(NULL, 0, 1, "SemRead");
+    sem_read = CreateSemaphoreA(NULL, 0, 1, "SemRead");  // Initialwert: 0 (Leseprozess wartet)
     if (!sem_read) {
         throw std::runtime_error("Failed to create read semaphore");
     }
 
-    sem_write = CreateSemaphoreA(NULL, 1, 1, "SemWrite");
+    sem_write = CreateSemaphoreA(NULL, 1, 1, "SemWrite");  // Initialwert: 1 (Schreibprozess kann starten)
     if (!sem_write) {
         throw std::runtime_error("Failed to create write semaphore");
     }
@@ -66,25 +66,29 @@ void cleanupSharedMemory() {
 int main() {
     try {
         initSharedMemory();
-        ReleaseSemaphore(sem_read, 1, NULL);
+
         ReleaseSemaphore(sem_write, 1, NULL);
+        ReleaseSemaphore(sem_read, 1, NULL);
 
         while (true) {
-            // Warte darauf, dass der Schreibprozess schreiben kann
-            WaitForSingleObject(sem_write, INFINITE);
+            std::cout << "Writer waiting for semaphore..." << std::endl;
+            // Warten, dass der Leseprozess die Daten liest
+            WaitForSingleObject(sem_write, INFINITE);  // Warten, bis der Writer schreiben darf
 
             // Beispiel-Daten in den Shared Memory schreiben
             std::strcpy(sharedMemory->laserData, "Example laser data");
             std::strcpy(sharedMemory->odomData, "Example odom data");
 
-            // Gebe das Lese-Semaphor frei
+            // Gebe das Lese-Semaphor frei, damit der Leseprozess auf die neuen Daten zugreifen kann
+            std::cout << "Writer releasing semaphore..." << std::endl;
             ReleaseSemaphore(sem_read, 1, NULL);
+            
+            ReleaseSemaphore(sem_write, 1, NULL); //Für Endlosschleife jedoch ohne Synchronisation dann
 
             std::cout << "Data written to shared memory: "
                       << sharedMemory->laserData << ", " << sharedMemory->odomData << std::endl;
 
-            Sleep(1000); // 1 Sekunde warten
-            //ReleaseSemaphore(sem_write, 1, NULL); für Endlosschleife
+            Sleep(1000);  // 1 Sekunde warten
         }
 
         cleanupSharedMemory();
