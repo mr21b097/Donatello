@@ -3,7 +3,7 @@
 #include <vector>
 #include <chrono>
 #include <thread>
-#include <opencv2/opencv.hpp>
+//#include <opencv2/opencv.hpp>
 
 // Struktur für die Pose des Roboters
 struct Pose {
