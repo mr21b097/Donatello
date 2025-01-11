@@ -99,10 +99,10 @@ std::string runExecutableWithOutput(const std::string& exePath, const std::strin
 
 int main() {
     // Exe-Pfade anpassen
-    std::string serverExePath = ".\\Donatello\\Test3_Aktuell\\server.exe";
-    std::string clientExePath = ".\\Donatello\\Test3_Aktuell\\client.exe";
-    std::string laserANAExePath = ".\\Donatello\\Test3_Aktuell\\laser_analysis.exe";
-    std::string odomANAExePath = ".\\Donatello\\Test3_Aktuell\\odom_analysis.exe";
+    std::string serverExePath = ".\\Test3_Aktuell\\server.exe";
+    std::string clientExePath = ".\\Test3_Aktuell\\client.exe";
+    std::string laserANAExePath = ".\\Test3_Aktuell\\laser_analysis.exe";
+    std::string odomANAExePath = ".\\Test3_Aktuell\\odom_analysis.exe";
 
     // Argumente für die Programme
     std::string serverArgs1 = "9997";
@@ -113,7 +113,6 @@ int main() {
     // Threads erstellen
     std::thread serverThread1(runExecutableNoOutput, serverExePath, serverArgs1);
     std::thread serverThread2(runExecutableNoOutput, serverExePath, serverArgs2);
-
     
 
     // Warten, bis die Threads beendet sind
