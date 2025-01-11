@@ -99,10 +99,10 @@ std::string runExecutableWithOutput(const std::string& exePath, const std::strin
 
 int main() {
     // Exe-Pfade anpassen
-    std::string serverExePath = ".\\Donatello\\Test3 (Aktuell)\\server.exe";
-    std::string clientExePath = ".\\Donatello\\Test3 (Aktuell)\\client.exe";
-    std::string laserANAExePath = ".\\Donatello\\Test3 (Aktuell)\\laser_analysis.exe";
-    std::string odomANAExePath = ".\\Donatello\\Test3 (Aktuell)\\odom_analysis.exe";
+    std::string serverExePath = ".\\Donatello\\Test3_Aktuell\\server.exe";
+    std::string clientExePath = ".\\Donatello\\Test3_Aktuell\\client.exe";
+    std::string laserANAExePath = ".\\Donatello\\Test3_Aktuell\\laser_analysis.exe";
+    std::string odomANAExePath = ".\\Donatello\\Test3_Aktuell\\odom_analysis.exe";
 
     // Argumente für die Programme
     std::string serverArgs1 = "9997";
