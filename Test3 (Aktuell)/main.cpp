@@ -101,6 +101,8 @@ int main() {
     // Exe-Pfade anpassen
     std::string serverExePath = "C:\\Users\\Christoph Roth\\Desktop\\APR\\Donatello\\Test3 (Aktuell)\\server.exe";
     std::string clientExePath = "C:\\Users\\Christoph Roth\\Desktop\\APR\\Donatello\\Test3 (Aktuell)\\client.exe";
+    std::string laserANAExePath = "C:\\Users\\Christoph Roth\\Desktop\\APR\\Donatello\\Test3 (Aktuell)\\laser_analysis.exe";
+    std::string odomANAExePath = "C:\\Users\\Christoph Roth\\Desktop\\APR\\Donatello\\Test3 (Aktuell)\\odom_analysis.exe";
 
     // Argumente für die Programme
     std::string serverArgs1 = "9997";
@@ -124,13 +126,22 @@ int main() {
     std::thread clientThread1([&]() { clientOutput1 = runExecutableWithOutput(clientExePath, clientArgs1); });
     std::thread clientThread2([&]() { clientOutput2 = runExecutableWithOutput(clientExePath, clientArgs2); });
 
+    std::string Laser_ANA_Args = clientOutput1;
+    std::string Odom_ANA_Args = clientOutput2;
+
+    std::string laserANAOutput, odomANAOutput;
+    std::thread LaserANAThread([&]() { laserANAOutput = runExecutableWithOutput(laserANAExePath, clientArgs1); });
+    std::thread OdomANAThread([&]() { odomANAOutput = runExecutableWithOutput(odomANAExePath, clientArgs2); });
+
     // Warten, bis die Threads beendet sind
     clientThread1.join();
     clientThread2.join();
+    OdomANAThread.join();
+    LaserANAThread.join();
 
     // Ausgabe der Clients anzeigen
-    std::cout << "Client 1 Ausgabe:\n" << clientOutput1 << "\n" << std::endl;
-    std::cout << "Client 2 Ausgabe:\n" << clientOutput2 << "\n" << std::endl;
+    std::cout << "Client 1 Ausgabe:\n" << laserANAOutput << "\n" << std::endl;
+    std::cout << "Client 2 Ausgabe:\n" << odomANAOutput << "\n" << std::endl;
     }
     return 0;
 }
