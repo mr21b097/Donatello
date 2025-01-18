@@ -8,8 +8,7 @@ MAIN_SRC = main.cpp
 SERVER_SRC = TCPEchoServer.cpp
 CLIENT_SRC = TCPEchoClient.cpp
 SEND_CLIENT_SRC = TCPEchoClientSend.cpp
-LASER_SRC = laser_data_analasys.cpp
-ODOM_SRC = odom_data_analasys.cpp
+
 
 # Objektdateien
 MAIN_OBJ = $(MAIN_SRC:.cpp=.o)
@@ -24,8 +23,7 @@ MAIN_TARGET = myprogram.exe
 SERVER_TARGET = server.exe
 CLIENT_TARGET = client.exe
 SEND_CLIENT_TARGET = send.exe
-LASER_TARGET = laser_analysis.exe
-ODOM_TARGET = odom_analysis.exe
+
 
 # Standardziel: Alle ausführbaren Dateien erstellen
 all: $(MAIN_TARGET) $(SERVER_TARGET) $(CLIENT_TARGET) $(SEND_CLIENT_TARGET) $(LASER_TARGET) $(ODOM_TARGET)
@@ -46,13 +44,7 @@ $(CLIENT_TARGET): $(CLIENT_OBJ)
 $(SEND_CLIENT_TARGET): $(SEND_CLIENT_OBJ)
 	$(CXX) $(SEND_CLIENT_OBJ) $(LDFLAGS) -o $@
 
-# Erstellen der Laser-Analyse-Ausführbaren Datei
-$(LASER_TARGET): $(LASER_OBJ)
-	$(CXX) $(LASER_OBJ) $(LDFLAGS) -o $@
 
-# Erstellen der Odometry-Analyse-Ausführbaren Datei
-$(ODOM_TARGET): $(ODOM_OBJ)
-	$(CXX) $(ODOM_OBJ) $(LDFLAGS) -o $@
 
 # Kompilieren der Quellcode-Dateien
 %.o: %.cpp
