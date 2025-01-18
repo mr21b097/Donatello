@@ -7,7 +7,7 @@
 
 
 //TEST ODOM ANALYSE
-
+/*
 struct Pose {
     struct Position {
         double x, y, z;
@@ -83,11 +83,12 @@ RobotState parseRobotState(const std::string& data) {
 
     return state;
 }
-
+*/
 //ENDE TEST ODOM ADALYSE
 
 
 // Funktion zum Starten einer Exe-Datei ohne Ausgabeumleitung (z.B. für Server)
+//QUELLE: https://learn.microsoft.com/de-de/windows/win32/procthread/processes-and-threads
 void runExecutableNoOutput(const std::string& exePath, const std::string& arguments) {
     std::string commandLine = exePath + " " + arguments;
 
@@ -123,6 +124,7 @@ void runExecutableNoOutput(const std::string& exePath, const std::string& argume
 }
 
 // Funktion zum Starten einer Exe-Datei mit Ausgabeumleitung (z.B. für Clients)
+//QUELLE: https://learn.microsoft.com/de-de/windows/win32/procthread/creating-a-child-process-with-redirected-input-and-output
 std::string runExecutableWithOutput(const std::string& exePath, const std::string& arguments) {
     std::string commandLine = exePath + " " + arguments;
 
@@ -217,8 +219,8 @@ int main() {
    // std::cout << "Client 2 Ausgabe:\n" << clientOutput2 << "\n" << std::endl;
 
  
-//TEST Laser Analyse
-
+//TEST Laser Analyse 
+/*
     std::string input = clientOutput1;
 
     // Marker definitions
@@ -268,10 +270,11 @@ int main() {
     }
 
 
-
-
+//ende Laser Analyse 
+*/
 
 //Test odom analyse
+/*
 
     // Beispiel-Daten mit Start und End
     std::string data = clientOutput2;
@@ -312,7 +315,8 @@ int main() {
         std::cerr << "Fehler: Start oder End Marker fehlt!" << std::endl;
     }
 
-
+//Ende ztest odom analyse
+*/
 
     }
     return 0;
