@@ -117,7 +117,9 @@
     "stop_token": "cpp",
     "thread": "cpp",
     "chrono": "cpp",
-    "iomanip": "cpp"
+    "iomanip": "cpp",
+    "bitset": "cpp",
+    "regex": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

@@ -127,20 +127,16 @@ int main() {
 
     std::string Laser_ANA_Args = clientOutput1;
     std::string Odom_ANA_Args = clientOutput2;
-/*
-    std::string laserANAOutput, odomANAOutput;
-    std::thread LaserANAThread([&]() { laserANAOutput = runExecutableWithOutput(laserANAExePath, clientArgs1); });
-    std::thread OdomANAThread([&]() { odomANAOutput = runExecutableWithOutput(odomANAExePath, clientArgs2); });
-*/
+
     // Warten, bis die Threads beendet sind
     clientThread1.join();
     clientThread2.join();
-    //OdomANAThread.join();
-    //LaserANAThread.join();
 
     // Ausgabe der Clients anzeigen
-    std::cout << "Client 1 Ausgabe:\n" << clientOutput1 << "\n" << std::endl;
-    std::cout << "Client 2 Ausgabe:\n" << clientOutput2 << "\n" << std::endl;
+    //std::cout << "Client 1 Ausgabe:\n" << clientOutput1 << "\n" << std::endl;
+    //std::cout << "Client 2 Ausgabe:\n" << clientOutput2 << "\n" << std::endl;
+
+ 
     }
     return 0;
 }

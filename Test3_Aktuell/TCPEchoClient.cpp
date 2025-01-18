@@ -67,7 +67,7 @@ int main(int argc, char* argv[]) {
 
     // Empfange denselben String zurück vom Server
     totalBytesRcvd = 0;
-    std::cout << "Empfangen: ";  // Setup für das Ausgeben des empfangenen Strings
+    //std::cout << "Empfangen: ";  // Setup für das Ausgeben des empfangenen Strings
     while (totalBytesRcvd < echoStringLen) {
         if ((bytesRcvd = recv(sock, echoBuffer, RCVBUFSIZE - 1, 0)) <= 0) {
             DieWithError("recv() fehlgeschlagen oder Verbindung unerwartet geschlossen");

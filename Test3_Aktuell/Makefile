@@ -1,4 +1,4 @@
-^c# Compiler und Flags
+# Compiler und Flags
 CXX = g++
 CXXFLAGS = -Wall -std=c++17 -pthread  # -pthread für Multithreading-Unterstützung
 LDFLAGS = -lws2_32                   # Winsock-Bibliothek für Windows (falls erforderlich)

@@ -56,7 +56,7 @@ int main(int argc, char* argv[]) {
                 std::cout << "Error: Ranges array does not contain exactly 360 values. Found: " << ranges.size() << std::endl;
             }
         } else {
-            std::cout << "Ranges array not found in the JSON data." << std::endl;
+            std::cout << "Ranges array not found in the data." << std::endl;
         }
     } else {
         std::cout << "Markers not found in the input string." << std::endl;
