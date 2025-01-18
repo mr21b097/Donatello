@@ -188,6 +188,7 @@ int main() {
     std::string clientExePath = "C:\\Users\\Christoph Roth\\Desktop\\APR\\Donatello\\Test3_Aktuell\\client.exe";
     std::string laserANAExePath = "C:\\Users\\Christoph Roth\\Desktop\\APR\\Donatello\\Test3_Aktuell\\laser_analysis.exe";
     std::string odomANAExePath = "C:\\Users\\Christoph Roth\\Desktop\\APR\\Donatello\\Test3_Aktuell\\odom_analysis.exe";
+    std::string lincontrolPath = "C:\\Users\\Christoph Roth\\Desktop\\APR\\Donatello\\Test3_Aktuell\\test_linear.exe";
 
     // Argumente für die Programme
     std::string serverArgs1 = "9997";
@@ -206,7 +207,7 @@ int main() {
 
     while(true)
     {
-    std::string clientOutput1, clientOutput2;
+    std::string clientOutput1, clientOutput2, clientOutput3;
     std::thread clientThread1([&]() { clientOutput1 = runExecutableWithOutput(clientExePath, clientArgs1); });
     std::thread clientThread2([&]() { clientOutput2 = runExecutableWithOutput(clientExePath, clientArgs2); });
 
@@ -215,10 +216,15 @@ int main() {
     clientThread2.join();
 
     // Ausgabe der Clients anzeigen
-   // std::cout << "Client 1 Ausgabe:\n" << clientOutput1 << "\n" << std::endl;
-   // std::cout << "Client 2 Ausgabe:\n" << clientOutput2 << "\n" << std::endl;
+    //std::cout << "Client 1 Ausgabe:\n" << clientOutput1 << "\n" << std::endl;
+    //std::cout << "Client 2 Ausgabe:\n" << clientOutput2 << "\n" << std::endl;
 
- 
+    std::string lincontrol = "0.0 0.0 0.0 500 500 0";
+    std::thread clientThread3([&]() { clientOutput3 = runExecutableWithOutput(lincontrolPath, lincontrol); });
+    
+    clientThread3.join();
+
+    std::cout << "Client 3 Ausgabe:\n" << clientOutput3 << "\n" << std::endl;
 //TEST Laser Analyse 
 /*
     std::string input = clientOutput1;
